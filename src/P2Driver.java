@@ -13,28 +13,22 @@
 #
  */
 import java.io.File;
-import java.util.Scanner;
-
 import java.io.PrintWriter;
 import java.util.*;
 public class P2Driver {
     public static void main(String[] args) {
         
+        
         Scanner in;
-        Scanner input  = new Scanner(System.in);
-        System.out.println("Enter input file");
-        String inputFile = input.nextLine();
-        System.out.println("Enter output file");
-        String outputFile = input.nextLine();
-        if (inputFile == null) {
+        if (args.length!=2) {
             System.out.print("Error Incorrect Arguments:" + Arrays.toString(args));
             System.exit(0);
             
         } 
         try {
-	 File input_file = new File("t2.txt");
+	 File input_file = new File(args[0]);
             in = new Scanner(input_file);
-         File output_file = new File(outputFile); 
+         File output_file = new File(args[1]); 
            PrintWriter  out;
         out = new PrintWriter(output_file);
          
@@ -73,7 +67,7 @@ public class P2Driver {
 		    else { name.add(val); }
 		}
 		MyItem new_item = new MyItem(id, price, name);
-                result = LL.insertAtFront(new_item);
+                result = LL.inserAtFront(new_item);
                 //result = Insert the item into the linkedlist and get true or false 
                    out.println(result ? "True" :"False");
                 }
