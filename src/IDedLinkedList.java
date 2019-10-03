@@ -49,15 +49,17 @@ public class IDedLinkedList <AnyType extends IDedObject>{
 			if (deleted == null) {
 				return deleted;
 			}
-			else if (deleted.getID() == ID) {
+			else if (temp.data.getID() == ID) {
 				head = temp.next;
 			}
 			else {
 				while(temp != null) {
-					if (deleted.getID() == temp.data.getID()) {
+					if (ID == temp.next.data.getID()) {
 						Node next = temp.next.next;
 						temp.next = next;
+						break;
 					}
+					temp = temp.next;
 				}
 			}
 			return deleted;
